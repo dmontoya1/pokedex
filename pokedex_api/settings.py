@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # External apps
     'django_extensions',
+    'graphene_django',
+
+    # Internal Apps
+    'pokedex.apps.PokedexConfig'
 ]
 
 MIDDLEWARE = [
@@ -121,3 +127,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 from .local_settings import *
+
+# Graphene Config
+
+GRAPHENE = {
+    'SCHEMA': 'pokedex_api.schema.schema',
+    'MIDDLEWARE': [
+        'graphene_django.debug.DjangoDebugMiddleware',
+    ]
+}
